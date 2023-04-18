@@ -12,7 +12,7 @@ polygon2 = Polygon([(3, 10), (7, 10), (7, 5), (3, 5)])
 multi_polygon = MultiPolygon([polygon1, polygon2])
 
 # Definiere den Abstand zwischen den Windkraftanlagen
-d = 2
+d = 3
 
 # Generiere eine Grid-Geometrie mit einem Gitterabstand von d und berechne die Anzahl von Punkten,
 # die innerhalb des Multi-Polygons liegen
