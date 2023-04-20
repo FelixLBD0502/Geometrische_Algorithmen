@@ -2,7 +2,7 @@ import geopandas as gpd
 import matplotlib.pyplot as plt
 from shapely.geometry import Polygon, MultiPolygon, Point
 
-def count_points_in_multipolygon(multi_polygon, d):
+def windpark_abstand_d(multi_polygon, d):
     # Generiere eine Grid-Geometrie mit einem Gitterabstand von d und berechne die Anzahl von Punkten,
     # die innerhalb des Multi-Polygons liegen
     bbox = multi_polygon.bounds
@@ -51,9 +51,9 @@ def count_points_in_multipolygon(multi_polygon, d):
 polygon1 = Polygon([(2, 5), (10, 5), (10, 2), (2, 2)])
 polygon2 = Polygon([(3, 10), (7, 10), (7, 5), (3, 5)])
 G1 = MultiPolygon([polygon1, polygon2])
-Abstand = 1
+Abstand = 2
 
-count_points_in_multipolygon(G1, Abstand)
+windpark_abstand_d(G1, Abstand)
 
 if __name__ == "__main__":
     print("")
