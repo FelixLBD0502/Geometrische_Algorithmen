@@ -31,6 +31,12 @@ def windpark_abstand_d(multi_polygon, d):
     print("Koordinaten der Punkte:")
     print(point_coords)
 
+    create_pdf(d, gdf, max_x, max_y, multi_polygon, num_points)
+
+    return num_points, point_coords
+
+
+def create_pdf(d, gdf, max_x, max_y, multi_polygon, num_points):
     # Zeige das Multi-Polygon und die Punkte in einem Koordinatensystem
     ax = gdf.plot(color="red", markersize=2)
     df = gpd.GeoDataFrame(geometry=[multi_polygon])
@@ -42,20 +48,14 @@ def windpark_abstand_d(multi_polygon, d):
     plt.xticks(range(0, int(max_x + 2), 1))
     plt.yticks(range(1, int(max_y + 2), 1))
     ax.grid(linestyle="--", linewidth=0.5)
-
     # Speichere diese darstellung als PDF
-    plt.savefig("Anlagen:" +str(num_points) + "_d=" + str(d) + ".pdf", bbox_inches="tight")
+    plt.savefig("Anlagen:" + str(num_points) + "_d=" + str(d) + ".pdf", bbox_inches="tight")
 
-    return num_points, point_coords
-
-polygon1 = Polygon([(2, 5), (10, 5), (10, 2), (2, 2)])
-polygon2 = Polygon([(3, 10), (7, 10), (7, 5), (3, 5)])
-G1 = MultiPolygon([polygon1, polygon2])
-Abstand = 2
-
-windpark_abstand_d(G1, Abstand)
 
 if __name__ == "__main__":
-    print("")
-else:
-    print("not main")
+    polygon1 = Polygon([(2, 5), (10, 5), (10, 2), (2, 2)])
+    polygon2 = Polygon([(3, 10), (7, 10), (7, 5), (3, 5)])
+    G1 = MultiPolygon([polygon1, polygon2])
+    Abstand = 2
+
+    windpark_abstand_d(G1, Abstand)

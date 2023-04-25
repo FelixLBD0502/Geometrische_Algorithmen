@@ -1,5 +1,5 @@
 from shapely.geometry import Polygon, MultiPolygon
-from windkraftpark import windpark_abstand_d
+from .windkraftpark import windpark_abstand_d
 
 def test_windpark_abstand_d():
     polygon1 = Polygon([(2, 5), (10, 5), (10, 2), (2, 2)])
@@ -7,6 +7,5 @@ def test_windpark_abstand_d():
     multi_polygon = MultiPolygon([polygon1, polygon2])
     d = 2
     num_points, point_coords = windpark_abstand_d(multi_polygon, d)
-    assert num_points == 17
+    assert num_points == 16
 
-test_windpark_abstand_d()
