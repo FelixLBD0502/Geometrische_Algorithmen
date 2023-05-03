@@ -50,6 +50,7 @@ def create_graph(lines):
     pos = nx.get_node_attributes(G, 'pos')
     nx.draw(G, pos)
     nx.draw_networkx_edges(G, pos, edgelist=[(i+1, j+1) for i in range(len(points)) for j in range(i+1, len(points))], edge_color='red')
+    # plt.savefig("geo_netz.pdf")
     plt.show()
 
 
