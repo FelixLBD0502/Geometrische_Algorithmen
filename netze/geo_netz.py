@@ -46,12 +46,15 @@ def create_graph(lines):
         if 'pos' not in G.nodes[node]:
             G.remove_node(node)
 
+    return G
+
+def show_graph(graph):
     # Zeige den Graphen mit matplotlib an (und speichere ihn als PDF-Datei)
-    pos = nx.get_node_attributes(G, 'pos')
-    nx.draw(G, pos)
-    nx.draw_networkx_edges(G, pos, edgelist=[(i+1, j+1) for i in range(len(points)) for j in range(i+1, len(points))], edge_color='red')
+    pos = nx.get_node_attributes(graph, 'pos')
+    nx.draw(graph, pos)
+    nx.draw_networkx_edges(graph, pos, edgelist=[(i+1, j+1) for i in range(len(pos)-1) for j in range(i+1, len(pos))], edge_color='red')
     # plt.savefig("geo_netz.pdf")
     plt.show()
 
-
-create_graph(lines)
+graph = create_graph(lines)
+show_graph(G)
