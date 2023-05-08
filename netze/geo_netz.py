@@ -56,5 +56,5 @@ def show_graph(graph):
     # plt.savefig("geo_netz.pdf")
     plt.show()
 
-graph = create_graph(lines)
+G = create_graph(lines)
 show_graph(G)
